@@ -7,6 +7,8 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 def Train(model, train_DL, criterion, optimizer, EPOCH):
     loss_history = []
 
+    print(f"device: {DEVICE}")
+    model = model.to(DEVICE)
     model.train()
     for ep in range(EPOCH):
         r_loss = 0
